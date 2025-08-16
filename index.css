@@ -1,0 +1,198 @@
+
+:root {
+  --background-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --primary-color: #00e5ff;
+  --control-bg-color: rgba(44, 44, 44, 0.85);
+  --slider-track-color: #444;
+  --slider-thumb-color: var(--primary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#simulationCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--control-bg-color);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--slider-track-color);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border-radius: 50%;
+    border: 2px solid var(--background-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    transition: background .2s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border-radius: 50%;
+    border: 2px solid var(--background-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    cursor: pointer;
+}
+
+fieldset {
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px 15px 5px 15px;
+    margin-top: 25px;
+}
+
+legend {
+    padding: 0 10px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.control-group-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.control-group-checkbox label {
+    margin-bottom: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--slider-track-color);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid var(--slider-track-color);
+    border-radius: 0.25em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--primary-color);
+    background-color: var(--primary-color);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+#manualWindControls.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.instructions {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -8px 32px 0 rgba(0, 0, 0, 0.37);
+        max-height: 50vh;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    fieldset {
+        margin-top: 15px;
+    }
+}

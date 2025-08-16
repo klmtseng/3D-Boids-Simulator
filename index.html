@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Boids Flocking Simulator</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐦</text></svg>">
+</head>
+<body>
+    <canvas id="simulationCanvas"></canvas>
+    <aside id="sidebar">
+        <h1>3D Boids Simulator</h1>
+        <div class="control-group">
+            <label for="boidCount">Boids: <span id="boidCountValue">200</span></label>
+            <input type="range" id="boidCount" min="1" max="500" value="200">
+        </div>
+        <div class="control-group">
+            <label for="perceptionRadius">Perception Radius: <span id="perceptionRadiusValue">50</span></label>
+            <input type="range" id="perceptionRadius" min="10" max="200" value="50">
+        </div>
+        <div class="control-group">
+            <label for="alignment">Alignment: <span id="alignmentValue">1.0</span></label>
+            <input type="range" id="alignment" min="0" max="2.5" step="0.1" value="1.0">
+        </div>
+        <div class="control-group">
+            <label for="cohesion">Cohesion: <span id="cohesionValue">1.0</span></label>
+            <input type="range" id="cohesion" min="0" max="2.5" step="0.1" value="1.0">
+        </div>
+        <div class="control-group">
+            <label for="separation">Separation: <span id="separationValue">1.5</span></label>
+            <input type="range" id="separation" min="0" max="2.5" step="0.1" value="1.5">
+        </div>
+        <div class="control-group">
+            <label for="windStrength">Wind Strength: <span id="windStrengthValue">0.5</span></label>
+            <input type="range" id="windStrength" min="0" max="2.0" step="0.1" value="0.5">
+        </div>
+
+        <fieldset>
+            <legend>Camera Controls</legend>
+            <div class="control-group-checkbox">
+                <input type="checkbox" id="chaseMode">
+                <label for="chaseMode">Chase Flock</label>
+            </div>
+            <div class="control-group-checkbox">
+                <input type="checkbox" id="showGrid" checked>
+                <label for="showGrid">Show Grid</label>
+            </div>
+            <div class="control-group-checkbox">
+                <input type="checkbox" id="showWind">
+                <label for="showWind">Show Wind</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Wind Controls</legend>
+            <div class="control-group-checkbox">
+                <input type="checkbox" id="automaticWind" checked>
+                <label for="automaticWind">Automatic Wind</label>
+            </div>
+            <div id="manualWindControls">
+                <div class="control-group">
+                    <label for="windAzimuth">Azimuth: <span id="windAzimuthValue">0</span>°</label>
+                    <input type="range" id="windAzimuth" min="-180" max="180" step="1" value="0">
+                </div>
+                <div class="control-group">
+                    <label for="windElevation">Elevation: <span id="windElevationValue">0</span>°</label>
+                    <input type="range" id="windElevation" min="-90" max="90" step="1" value="0">
+                </div>
+            </div>
+        </fieldset>
+
+         <p class="instructions">Click to repel. Drag to rotate. Scroll to zoom.</p>
+    </aside>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "3D Boids Flocking Simulator",
+  "description": "An interactive 3D simulation of Craig Reynolds' Boids flocking algorithm with perspective projection.",
+  "requestFramePermissions": []
+}
