@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 3D Boids Flocking Simulator
 
-# Run and deploy your AI Studio app
+An interactive 3D simulation of Craig Reynolds' Boids flocking algorithm, rendered on a 2D canvas through a custom perspective-projection camera. Written in TypeScript with no runtime dependencies.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/18fmwf-_wEdxjb6jl3Vlp0cYquIHm5Ina
+- Classic boids steering behaviors: separation, alignment, and cohesion, each adjustable with sliders
+- Live controls for boid count (up to 500), perception radius, and wind strength
+- Wind system with manual azimuth/elevation control or automatic drifting wind, plus an optional wind-vector overlay
+- Chase mode and mouse-based repel interaction
+- Optional 3D grid overlay for depth reference
 
-## Run Locally
+## Run locally
 
-**Prerequisites:**  Node.js
+Prerequisite: Node.js
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Install dependencies: `npm install`
+2. Start the dev server: `npm run dev`
