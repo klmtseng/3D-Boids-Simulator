@@ -2,7 +2,7 @@
 
 /**
  * @license
- * SPDX-License-Identifier: Apache-2.0
+ * SPDX-License-Identifier: MIT
 */
 
 // --- VECTOR CLASS (3D) ---
